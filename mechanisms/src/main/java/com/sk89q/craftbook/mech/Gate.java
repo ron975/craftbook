@@ -21,7 +21,7 @@ package com.sk89q.craftbook.mech;
 
 import java.util.HashSet;
 import java.util.Set;
-
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -432,6 +432,7 @@ public class Gate extends AbstractMechanic {
 
         if (toggleGates(player, pt, smallSearchSize)) {
             player.print("mech.gate.toggle");
+            economy.withdrawPlayer(event.getPlayer().getName()) //See this
         } else {
             player.printError("mech.gate.not-found");
         }
